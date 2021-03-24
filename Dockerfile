@@ -21,3 +21,10 @@ RUN npm install
 
 # Default command
 CMD ["npm", "start"]
+
+# By default, no incoming trafic to local computer is directed into port.
+# NOTE: Outgoing traffic from container is allowed (we've used it during installation of dependencies inside container)
+# So, we have to set explicit port mapping.:-
+# We won't be changing the docker file for this, we'll be modifying the docker run command:-
+# docker run -p <local_computer_port>:<container_port> <image_id>
+# this will route incoming requests coming to local_computer_port to container_port inside the container
